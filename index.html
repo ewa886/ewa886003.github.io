@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>相關網站連結</title>
+
+  <style>
+    :root{
+      --bg:#f3f5f7;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --accent:#9b3b3b;
+      --accent-weak:#fff7f7;
+      --shadow:0 10px 26px rgba(0,0,0,.08);
+      --link:#2563eb;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      padding:40px 18px 60px;
+      background:var(--bg);
+      font-family:"微軟正黑體", Arial, sans-serif;
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    /* 標題區：不走一般置中，改成偏左、像系統模組 */
+    .header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .title{
+      margin:0;
+      font-size:2rem;
+      letter-spacing:.5px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .title::before{
+      content:"";
+      width:10px;
+      height:30px;
+      border-radius:6px;
+      background:var(--accent);
+    }
+    .hint{
+      color:var(--muted);
+      font-size:1rem;
+      margin:0;
+    }
+
+    /* 兩欄導覽 grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+    @media (min-width: 920px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    /* 模組卡：左側酒紅條＋編號圓 */
+    .tile{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 64px 1fr;
+      min-height: 148px;
+    }
+
+    .rail{
+      background:linear-gradient(180deg, var(--accent), #7f2b2b);
+      padding:14px 10px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .num{
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.25);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+    .chip{
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-weight:800;
+      color:#fff;
+      opacity:.95;
+      font-size:.9rem;
+      letter-spacing:.12em;
+    }
+
+    .body{
+      padding:16px 16px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .body a{
+      color:var(--link);
+      font-weight:900;
+      text-decoration:none;
+      font-size:1.18rem;
+      line-height:1.35;
+    }
+    .body a:hover{ text-decoration:underline; }
+
+    /* 文字不要太長：只顯示 3 行，避免每張卡高度失控 */
+    .desc{
+      margin:0;
+      color:var(--text);
+      font-size:1.02rem;
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+
+    .footer{
+      margin-top:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-top:4px;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fbfbfc;
+      color:var(--text);
+      font-weight:800;
+      text-decoration:none;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 18px rgba(0,0,0,.08);
+      background:var(--accent-weak);
+    }
+
+    .note{
+      margin-top:16px;
+      padding:14px 16px;
+      border-left:6px solid var(--accent);
+      background:var(--accent-weak);
+      border-radius:12px;
+      color:#5b2323;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 640px){
+      body{ padding:24px 14px 40px; }
+      .header{ flex-direction:column; align-items:flex-start; }
+      .title{ font-size:1.6rem; }
+      .tile{ grid-template-columns: 56px 1fr; }
+      .chip{ display:none; } /* 手機不要直排字，乾淨 */
+      .desc{ -webkit-line-clamp: 4; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1 class="title">相關網站連結</h1>
+      <p class="hint">整理氣候變遷與減災資源入口（點標題或按鈕開啟）。</p>
+    </div>
+
+    <section class="grid">
+      <!-- 01 -->
+      <article class="tile">
+        <div class="rail">
+          <div class="num">01</div>
+          <div class="chip">RESOURCE</div>
+        </div>
+        <div class="body">
+          <a href="https://tccip.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">
+            臺灣氣候變遷推估資訊與調適知識平台
+          </a>
+          <p class="desc">
+            本平台提供臺灣氣候變遷推估資料與調適相關知識，整合氣候情境分析、衝擊評估及調適策略等資訊，支援政策制定、研究應用與民眾理解，促進氣候風險管理與永續發展。
+          </p>
+          <div class="footer">
+            <span class="meta">類型：推估／資料</span>
+            <a class="btn" href="https://tccip.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">↗ 前往</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="tile">
+        <div class="rail">
+          <div class="num">02</div>
+          <div class="chip">RISK</div>
+        </div>
+        <div class="body">
+          <a href="https://dra.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">
+            氣候變遷災害風險調適平臺
+          </a>
+          <p class="desc">
+            本平臺整合氣候變遷下各類災害風險資訊，提供風險評估、情境分析及調適策略等內容，協助政府機關與社會大眾掌握氣候衝擊，強化防災規劃與調適能力，提升整體社會韌性。
+          </p>
+          <div class="footer">
+            <span class="meta">類型：風險／調適</span>
+            <a class="btn" href="https://dra.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">↗ 前往</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="tile">
+        <div class="rail">
+          <div class="num">03</div>
+          <div class="chip">DATA</div>
+        </div>
+        <div class="body">
+          <a href="https://drrstat.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">
+            減災動資料
+          </a>
+          <p class="desc">
+           本網站提供各類防災與減災相關資料，整合災害風險、預警資訊及應變知識，協助政府機關與民眾即時掌握災害動態，提升防災準備與減災能力，共同強化社會整體韌性。
+          </p>
+          <div class="footer">
+            <span class="meta">類型：統計／資料</span>
+            <a class="btn" href="https://drrstat.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">↗ 前往</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="tile">
+        <div class="rail">
+          <div class="num">04</div>
+          <div class="chip">POLICY</div>
+        </div>
+        <div class="body">
+          <a href="https://www.cca.gov.tw/" target="_blank" rel="noopener noreferrer">
+            環境部氣候變遷署
+          </a>
+          <p class="desc">
+            環境部氣候變遷署負責推動我國氣候變遷因應與淨零轉型政策，涵蓋溫室氣體減量、氣候調適、碳管理及國際合作等工作，強化全社會面對氣候風險的韌性，促進國家永續發展。。
+          </p>
+          <div class="footer">
+            <span class="meta">類型：政策／法規</span>
+            <a class="btn" href="https://www.cca.gov.tw/" target="_blank" rel="noopener noreferrer">↗ 前往</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="tile">
+        <div class="rail">
+          <div class="num">05</div>
+          <div class="chip">AGRI</div>
+        </div>
+        <div class="body">
+          <a href="https://acca.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">
+            農業災害與氣候變遷風險資訊站
+          </a>
+          <p class="desc">
+           本資訊站整合農業災害與氣候變遷相關風險資訊，提供氣候趨勢、災害預警及調適措施等內容，協助農民與相關單位掌握氣候風險，提升農業防災應變能力，促進農業永續發展。
+          </p>
+          <div class="footer">
+            <span class="meta">類型：農業／風險</span>
+            <a class="btn" href="https://acca.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">↗ 前往</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 -->
+      <article class="tile">
+        <div class="rail">
+          <div class="num">06</div>
+          <div class="chip">POLICY</div>
+        </div>
+        <div class="body">
+          <a href="https://acca.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">
+           宜蘭縣政府環境保護局全球資訊網站
+          </a>
+          <p class="desc">
+           宜蘭縣政府環境保護局因應氣候變遷挑戰，持續推動溫室氣體減量、氣候調適及環境永續相關政策，並透過資訊公開與環境教育，提升社會大眾對氣候變遷議題的認識，攜手打造安全、低碳且永續的宜蘭。
+          </p>
+          <div class="footer">
+            <span class="meta">類型：政策／法規</span>
+            <a class="btn" href="https://acca.ncdr.nat.gov.tw/" target="_blank" rel="noopener noreferrer">↗ 前往</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="note">
+      小提醒：以上為外部網站連結；若遇改版或暫時無法連線，請以原網站公告為準。
+    </div>
+  </div>
+</body>
+</html>
